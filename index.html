@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">NDJEL DAN — GIS Specialist | EUDR | GeoAI | Ndjeldan.github.io</title>
+<meta name="description" content="NDJEL DAN — GIS Specialist, EUDR Traceability, GeoAI and Environmental Monitoring. Cameroon, Central Africa. Portfolio by NDJEL DAN.">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Syne:wght@400;500;700&family=Syne+Mono&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g1:#030d06; --g2:#061a0d; --g3:#0a2e16;
+  --leaf:#16a34a; --leaf2:#4ade80; --leaf3:#bbf7d0;
+  --eudr:#d97706; --eudr2:#fcd34d;
+  --red:#dc2626; --red2:#fca5a5;
+  --sky:#0ea5e9; --sky2:#bae6fd;
+  --ink:#f0fdf4; --ink2:#dcfce7; --ink3:#86efac;
+  --muted:rgba(240,253,244,.45);
+  --border:rgba(74,222,128,.12);
+  --border2:rgba(74,222,128,.25);
+  --mono:'Syne Mono',monospace;
+  --head:'Clash Display','Syne',sans-serif;
+  --body:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--g1);color:var(--ink);overflow-x:hidden;line-height:1.7}
+
+/* BILINGUAL: hide non-active language spans by default (en active) */
+body:not(.lang-fr) .lang-fr { display:none; }
+body.lang-fr .lang-en { display:none; }
+
+/* CURSOR GLOW */
+.glow{position:fixed;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(22,163,74,.06) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);transition:all .1s ease;z-index:0}
+
+/* NAV */
+nav{position:fixed;top:28px;left:0;right:0;z-index:1000;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:rgba(3,13,6,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-name{font-family:var(--head);font-size:.95rem;font-weight:600;color:var(--ink);letter-spacing:.03em;text-decoration:none}
+.nav-name span{color:var(--leaf2)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.78rem;color:var(--muted);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--leaf2)}
+.nav-cta{background:var(--leaf);color:var(--g1)!important;padding:.4rem 1.1rem;border-radius:4px;font-weight:500}
+.nav-cta:hover{background:var(--leaf2)!important}
+
+/* Language toggle button */
+.lang-toggle { background:transparent; border:1px solid var(--border2); color:var(--leaf2); padding:0.3rem 0.8rem; border-radius:4px; font-family:var(--mono); font-size:.7rem; cursor:pointer; transition:all .2s; }
+.lang-toggle:hover { background:rgba(74,222,128,.08); }
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:6rem 2.5rem 4rem}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(22,163,74,.07) 0%,transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(14,165,233,.04) 0%,transparent 45%)}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(74,222,128,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(74,222,128,.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:1200px;width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.55rem;background:rgba(22,163,74,.1);border:1px solid rgba(22,163,74,.3);border-radius:999px;padding:.35rem 1rem;font-family:var(--mono);font-size:.68rem;color:var(--leaf2);letter-spacing:.08em;margin-bottom:1.5rem}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--leaf2);animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero-name{font-family:var(--head);font-size:clamp(3rem,6vw,5.5rem);font-weight:700;line-height:1;color:#fff;letter-spacing:-.02em;margin-bottom:.5rem}
+.hero-name .first{display:block;color:var(--leaf2);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:500;margin-bottom:.25rem;letter-spacing:.05em}
+.hero-role{font-size:1.05rem;font-weight:300;color:var(--muted);margin-bottom:2rem;line-height:1.7;max-width:44ch}
+.hero-role strong{color:var(--ink2);font-weight:500}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem}
+.hstat{text-align:center;padding:.85rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px}
+.hstat-num{font-family:var(--head);font-size:1.6rem;font-weight:700;color:var(--leaf2);line-height:1}
+.hstat-lbl{font-size:.7rem;color:var(--muted);margin-top:.2rem;line-height:1.3}
+.hero-actions{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.75rem 1.6rem;border-radius:6px;font-size:.85rem;font-weight:500;text-decoration:none;transition:all .2s;cursor:pointer;border:none;letter-spacing:.02em}
+.btn-p{background:var(--leaf);color:var(--g1)}.btn-p:hover{background:var(--leaf2);transform:translateY(-1px)}
+.btn-o{border:1px solid var(--border2);color:var(--leaf2);background:transparent}.btn-o:hover{background:rgba(74,222,128,.08);border-color:var(--leaf2)}
+/* Hero Right — animated thesis viz */
+.hero-right{position:relative}
+.thesis-card{background:rgba(6,26,13,.6);border:1px solid var(--border2);border-radius:16px;padding:1.5rem;backdrop-filter:blur(8px);position:relative;overflow:hidden}
+.thesis-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(22,163,74,.08),transparent 60%)}
+.tc-label{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.tc-label::before{content:'';width:20px;height:1px;background:var(--leaf)}
+.tc-title{font-family:var(--head);font-size:1rem;font-weight:600;color:#fff;margin-bottom:.4rem;line-height:1.35}
+.tc-sub{font-size:.78rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.5}
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem;margin-bottom:1.25rem}
+.cert{border-radius:8px;padding:.75rem;text-align:center;border:1px solid}
+.cert.green{background:rgba(22,163,74,.1);border-color:rgba(22,163,74,.3)}
+.cert.amber{background:rgba(217,119,6,.1);border-color:rgba(217,119,6,.3)}
+.cert.sky{background:rgba(14,165,233,.1);border-color:rgba(14,165,233,.3)}
+.cert.red{background:rgba(220,38,38,.1);border-color:rgba(220,38,38,.3)}
+.cert-num{font-family:var(--head);font-size:1.4rem;font-weight:700;line-height:1}
+.cert.green .cert-num{color:var(--leaf2)}.cert.amber .cert-num{color:var(--eudr2)}.cert.sky .cert-num{color:var(--sky2)}.cert.red .cert-num{color:var(--red2)}
+.cert-lbl{font-size:.65rem;color:var(--muted);margin-top:.2rem;line-height:1.35}
+.plot-mini{display:flex;gap:.4rem;flex-wrap:wrap}
+.pm{width:8px;height:8px;border-radius:2px;animation:pm-pulse 3s ease-in-out infinite}
+.pm.h{background:#4ade80}.pm.m{background:#fcd34d}.pm.l{background:#f87171}
+@keyframes pm-pulse{0%,100%{opacity:.7}50%{opacity:1}}
+
+/* SECTION COMMON */
+.section{padding:7rem 2.5rem;max-width:1200px;margin:0 auto}
+.s-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:.75rem;display:flex;align-items:center;gap:.75rem}
+.s-label::before{content:'';display:block;width:24px;height:1px;background:var(--leaf)}
+h2{font-family:var(--head);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;margin-bottom:.75rem;letter-spacing:-.02em;line-height:1.1}
+h2 em{font-style:italic;color:var(--leaf2)}
+
+/* FEATURED PROJECT — THESIS */
+.thesis-section{background:rgba(6,26,13,.4);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.thesis-wrap{max-width:1200px;margin:0 auto;padding:7rem 2.5rem}
+.thesis-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.thesis-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(217,119,6,.12);border:1px solid rgba(217,119,6,.3);border-radius:999px;padding:.3rem .9rem;font-family:var(--mono);font-size:.67rem;color:var(--eudr2);letter-spacing:.08em;margin-bottom:1.25rem}
+h3.thesis-title{font-family:var(--head);font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:700;color:#fff;margin-bottom:.85rem;line-height:1.25;letter-spacing:-.01em}
+.thesis-desc{font-size:.93rem;color:var(--muted);line-height:1.85;margin-bottom:1.5rem}
+.thesis-desc strong{color:var(--ink2)}
+.cert-list{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.75rem}
+.cl-item{display:flex;align-items:flex-start;gap:.85rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:.85rem 1rem}
+.cl-num{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.68rem;font-weight:500;flex-shrink:0}
+.cl-num.c1{background:rgba(74,222,128,.15);color:var(--leaf2);border:1px solid rgba(74,222,128,.3)}
+.cl-num.c2{background:rgba(217,119,6,.15);color:var(--eudr2);border:1px solid rgba(217,119,6,.3)}
+.cl-num.c3{background:rgba(14,165,233,.15);color:var(--sky2);border:1px solid rgba(14,165,233,.3)}
+.cl-num.c4{background:rgba(167,139,250,.15);color:#c4b5fd;border:1px solid rgba(167,139,250,.3)}
+.cl-title{font-size:.85rem;font-weight:500;color:var(--ink2);margin-bottom:.2rem}
+.cl-desc{font-size:.78rem;color:var(--muted);line-height:1.55}
+.tech-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.tech{font-family:var(--mono);font-size:.68rem;padding:3px 10px;border-radius:4px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.18);color:var(--leaf3)}
+/* Maps panel */
+.maps-panel{background:rgba(3,13,6,.7);border:1px solid var(--border2);border-radius:14px;overflow:hidden}
+.maps-top{padding:.75rem 1.25rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:rgba(74,222,128,.04)}
+.maps-fn{font-family:var(--mono);font-size:.7rem;color:var(--leaf2)}
+.maps-meta{font-size:.68rem;color:var(--muted)}
+.maps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:2px;background:var(--border)}
+.map-thumb{background:var(--g2);aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer}
+.map-thumb:hover .map-overlay{opacity:1}
+.map-poly{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.map-overlay{position:absolute;inset:0;background:rgba(22,163,74,.15);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
+.map-overlay span{font-family:var(--mono);font-size:.62rem;color:var(--leaf2)}
+.legend-strip{display:flex;gap:.65rem;padding:.75rem 1.25rem;border-top:1px solid var(--border);background:rgba(74,222,128,.02);flex-wrap:wrap}
+.lg-item{display:flex;align-items:center;gap:.4rem;font-size:.68rem;color:var(--muted);font-family:var(--mono)}
+.lg-dot{width:8px;height:8px;border-radius:2px}
+
+/* RESULTS GRID */
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.res-card{border-radius:10px;padding:1rem;border:1px solid var(--border);background:rgba(255,255,255,.03);text-align:center}
+.res-big{font-family:var(--head);font-size:1.8rem;font-weight:700;line-height:1;margin-bottom:.25rem}
+.res-lbl{font-size:.7rem;color:var(--muted);line-height:1.4}
+
+/* EUDR context bar */
+.eudr-context{background:rgba(217,119,6,.06);border-top:1px solid rgba(217,119,6,.2);border-bottom:1px solid rgba(217,119,6,.2);padding:1.25rem 2.5rem;margin-bottom:0}
+.eudr-context p{font-size:.88rem;color:rgba(252,211,77,.8);line-height:1.7;max-width:100%}
+
+/* CARTO PEERSPOT REVIEW */
+.carto-review-card{background:rgba(14,165,233,.05);border:1px solid rgba(14,165,233,.25);border-radius:12px;padding:1.25rem;margin-top:1.5rem}
+.carto-review-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.85rem}
+.carto-review-logo{font-family:var(--head);font-weight:700;color:var(--sky);font-size:1.1rem;letter-spacing:-.01em}
+.carto-review-rating{color:var(--sky2);font-size:.85rem}
+.carto-review-quote{font-size:.85rem;color:var(--ink2);line-height:1.7;margin-bottom:.75rem;font-style:italic}
+.carto-review-author{font-size:.75rem;color:var(--muted)}
+.carto-review-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:.75rem;font-family:var(--mono);font-size:.7rem;color:var(--sky2);text-decoration:none;transition:color .15s}
+.carto-review-link:hover{color:var(--sky)}
+
+/* PROJECTS GRID */
+.proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+.proj-card{border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;background:rgba(6,26,13,.4);cursor:pointer;position:relative}
+.proj-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top,rgba(74,222,128,.05),transparent 60%);opacity:0;transition:opacity .3s}
+.proj-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.proj-card:hover::before{opacity:1}
+.proj-img{height:120px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--g2)}
+.proj-img-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(74,222,128,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(74,222,128,.06) 1px,transparent 1px);background-size:16px 16px}
+.proj-emoji{position:relative;z-index:1;font-size:2.25rem}
+.proj-body{padding:1.1rem 1.25rem 1.35rem}
+.proj-type{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf);margin-bottom:.4rem}
+.proj-title{font-family:var(--head);font-size:.95rem;font-weight:600;color:#fff;margin-bottom:.45rem;line-height:1.3}
+.proj-desc{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:.85rem}
+.proj-tools{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.85rem}
+.pt{font-size:.62rem;padding:2px 7px;border-radius:3px;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.15);color:var(--leaf3);font-family:var(--mono)}
+.proj-links{display:flex;gap:.65rem;flex-wrap:wrap}
+.pl{font-size:.75rem;color:var(--leaf2);text-decoration:none;font-family:var(--mono);transition:color .15s}
+.pl:hover{color:var(--leaf3)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start}
+.about-text p{font-size:.95rem;color:var(--muted);line-height:1.9;margin-bottom:1.1rem}
+.about-text strong{color:var(--ink2);font-weight:500}
+.about-highlight{background:rgba(22,163,74,.08);border-left:3px solid var(--leaf);padding:.85rem 1.1rem;border-radius:0 8px 8px 0;margin-bottom:1.1rem;font-size:.9rem;color:var(--ink2);line-height:1.7}
+.exp-list{display:flex;flex-direction:column;gap:.65rem}
+.exp{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.9rem 1.1rem;transition:border-color .2s}
+.exp:hover{border-color:var(--border2)}
+.exp-role{font-size:.85rem;font-weight:500;color:var(--ink2);margin-bottom:.2rem}
+.exp-org{font-size:.75rem;color:var(--leaf);font-family:var(--mono)}
+.exp-date{font-size:.68rem;color:var(--muted);margin-top:.2rem}
+.exp-links{display:flex;gap:.5rem;margin-top:.35rem}
+.exp-link{font-size:.68rem;color:var(--sky2);text-decoration:none;font-family:var(--mono);transition:color .15s;display:inline-flex;align-items:center;gap:.25rem}
+.exp-link:hover{color:var(--sky2);text-decoration:underline}
+.contact-row{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:1.5rem}
+.cl{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--leaf2);text-decoration:none;font-family:var(--mono);transition:color .2s}
+.cl:hover{color:var(--leaf3)}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.skill-cat{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem}
+.skill-cat-title{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--leaf);margin-bottom:.75rem}
+.skill-list{display:flex;flex-direction:column;gap:.45rem}
+.sk{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.sk::before{content:'▸';color:var(--leaf);font-size:.6rem;flex-shrink:0}
+.sk-note{font-size:.75rem;color:var(--muted);font-style:italic;margin-top:.3rem;display:flex;align-items:center;gap:.5rem}
+.sk-note::before{content:'▸';color:var(--leaf);font-size:.6rem;flex-shrink:0;opacity:.5}
+
+/* TICKER */
+.ticker{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.6rem 0;overflow:hidden;position:fixed;top:0;z-index:999;width:100%;background:rgba(6,26,13,.5)}
+.ticker-inner{display:flex;gap:3rem;animation:ticker 25s linear infinite;width:max-content}
+.ticker-item{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap;letter-spacing:.06em}
+.ticker-item span{color:var(--leaf2);margin-right:.5rem}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-name{font-family:var(--head);font-size:.9rem;font-weight:600;color:var(--ink)}
+.footer-name span{color:var(--leaf2)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-family:var(--mono);font-size:.7rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--leaf2)}
+.footer-copy{font-size:.72rem;color:rgba(240,253,244,.2);font-family:var(--mono)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}.reveal-delay-5{transition-delay:.5s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner,.thesis-layout,.about-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:repeat(2,1fr)}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .res-grid{grid-template-columns:repeat(2,1fr)}
+  nav{padding:.85rem 1.25rem}
+  .section,.thesis-wrap{padding:4rem 1.25rem}
+}
+@media(max-width:600px){
+  .proj-grid,.skills-grid,.res-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="glow" id="glow"></div>
+
+<nav id="nav">
+  <a href="#" class="nav-name">NDJEL <span>DAN</span></a>
+  <ul class="nav-links">
+    <li><a href="#thesis"><span class="lang-en">Thesis</span><span class="lang-fr">Mémoire</span></a></li>
+    <li><a href="#projects"><span class="lang-en">Projects</span><span class="lang-fr">Projets</span></a></li>
+    <li><a href="#about"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+    <li><a href="mailto:davidndjel8@gmail.com" class="nav-cta"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+    <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">FR</button></li>
+  </ul>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span>▸</span>GIS Specialist · Central Africa</span>
+    <span class="ticker-item"><span>▸</span>EUDR Compliance · Traceability</span>
+    <span class="ticker-item"><span>▸</span>GeoAI · Environmental Monitoring</span>
+    <span class="ticker-item"><span>▸</span>Google Earth Engine · Sentinel-2</span>
+    <span class="ticker-item"><span>▸</span>NDJEL DAN · github.com/Ndjeldan</span>
+    <span class="ticker-item"><span>▸</span><span class="lang-en">Bilingual FR/EN · Yaoundé, Cameroon</span><span class="lang-fr">Bilingue FR/EN · Yaoundé, Cameroun</span></span>
+    <span class="ticker-item"><span>▸</span><span class="lang-en">Physical Geography · CAARD Diploma</span><span class="lang-fr">Géographie Physique · Diplôme CAARD</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span>▸</span>GIS Specialist · Central Africa</span>
+    <span class="ticker-item"><span>▸</span>EUDR Compliance · Traceability</span>
+    <span class="ticker-item"><span>▸</span>GeoAI · Environmental Monitoring</span>
+    <span class="ticker-item"><span>▸</span>Google Earth Engine · Sentinel-2</span>
+    <span class="ticker-item"><span>▸</span>NDJEL DAN · github.com/Ndjeldan</span>
+    <span class="ticker-item"><span>▸</span><span class="lang-en">Bilingual FR/EN · Yaoundé, Cameroon</span><span class="lang-fr">Bilingue FR/EN · Yaoundé, Cameroun</span></span>
+    <span class="ticker-item"><span>▸</span><span class="lang-en">Physical Geography · CAARD Diploma</span><span class="lang-fr">Géographie Physique · Diplôme CAARD</span></span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero" style="margin-top:2rem">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span><span class="lang-en">Open to GIS Officer · International Orgs</span><span class="lang-fr">Ouvert aux postes de GIS Officer · Organisations Internationales</span></div>
+      <div class="hero-name">
+        <span class="first">NDJEL DAN</span>
+        <span class="lang-en">GIS &amp;<br><span style="color:var(--leaf2)">GeoAI</span><br>Specialist</span>
+        <span class="lang-fr">Spécialiste<br><span style="color:var(--leaf2)">SIG &amp; GeoAI</span></span>
+      </div>
+      <p class="hero-role">
+        <span class="lang-en"><strong>Bilingual GIS professional</strong> (FR/EN) based in Yaoundé, Cameroon. Specialist in <strong>EUDR traceability</strong>, deforestation monitoring, and geospatial AI applications for environmental compliance in Central Africa.</span>
+        <span class="lang-fr"><strong>Professionnel SIG bilingue</strong> (FR/EN) basé à Yaoundé, Cameroun. Spécialiste en <strong>traçabilité EUDR</strong>, suivi de la déforestation et applications d'IA géospatiale pour la conformité environnementale en Afrique Centrale.</span>
+      </p>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-num">5+</div><div class="hstat-lbl"><span class="lang-en">Years environmental experience</span><span class="lang-fr">Ans d'expérience environnementale</span></div></div>
+        <div class="hstat"><div class="hstat-num">30</div><div class="hstat-lbl"><span class="lang-en">Cocoa plots analyzed</span><span class="lang-fr">Par celles de cacao analysées</span></div></div>
+        <div class="hstat"><div class="hstat-num">4</div><div class="hstat-lbl"><span class="lang-en">Compliance certificates</span><span class="lang-fr">Certificats de conformité</span></div></div>
+      </div>
+      <div class="hero-actions">
+        <a href="#thesis" class="btn btn-p"><span class="lang-en">See Thesis Work ↓</span><span class="lang-fr">Voir le Mémoire ↓</span></a>
+        <a href="#projects" class="btn btn-o"><span class="lang-en">All Projects</span><span class="lang-fr">Tous les Projets</span></a>
+        <a href="https://github.com/Ndjeldan" class="btn btn-o" target="_blank">GitHub ↗</a>
+        <a href="https://linkedin.com/in/ndjel-dan-8682ba21a" class="btn btn-o" target="_blank">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="thesis-card">
+        <div class="tc-label"><span class="lang-en">Thesis Project · 2024</span><span class="lang-fr">Projet de Mémoire · 2024</span></div>
+        <div class="tc-title"><span class="lang-en">Geospatial Approach to EUDR Certification &amp; Biodiversity Impact — Cocoa Cameroon</span><span class="lang-fr">Approche géospatiale pour la certification EUDR &amp; l'impact biodiversité — Cacao Cameroun</span></div>
+        <div class="tc-sub">30 parcelles · QGIS Atlas · GEE · NDVI/Sentinel-2 · ERA5/CHIRPS · IUCN · <span class="lang-en">Automated "Sustainability Passport"</span><span class="lang-fr">"Passeport Durabilité" automatisé</span></div>
+        <div class="cert-grid">
+          <div class="cert green"><div class="cert-num">✓</div><div class="cert-lbl"><span class="lang-en">EUDR Domain Compliance</span><span class="lang-fr">Conformité Domaine Permanent</span></div></div>
+          <div class="cert amber"><div class="cert-num">NDVI</div><div class="cert-lbl"><span class="lang-en">Vegetation Analysis</span><span class="lang-fr">Analyse de Végétation</span></div></div>
+          <div class="cert sky"><div class="cert-num">IUCN</div><div class="cert-lbl"><span class="lang-en">Biodiversity Risk</span><span class="lang-fr">Risque Biodiversité</span></div></div>
+          <div class="cert red"><div class="cert-num">°C</div><div class="cert-lbl"><span class="lang-en">Climate Vulnerability</span><span class="lang-fr">Vulnérabilité Climatique</span></div></div>
+        </div>
+        <div style="font-family:var(--mono);font-size:.65rem;color:var(--muted);margin-bottom:.5rem"><span class="lang-en">Plot vegetation status distribution</span><span class="lang-fr">Distribution du statut de végétation des parcelles</span></div>
+        <div class="plot-mini" id="plot-mini"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED — THESIS (RESTORED, NO PEERSPOT CARD) -->
+<div class="thesis-section" id="thesis">
+  <div class="eudr-context">
+    <div style="max-width:1200px;margin:0 auto;">
+      <p><strong style="color:var(--eudr2)">Context / Contexte :</strong> The EU Deforestation Regulation (EUDR) entered into force in 2023, requiring operators and traders of cocoa, coffee, palm oil, and other commodities to prove their products are not linked to deforestation. This thesis developed a replicable open-source methodology to generate plot-level compliance evidence — directly applicable to EUDR due diligence systems. <em style="color:rgba(252,211,77,.6)">Le Règlement Européen sur la Déforestation (RDUE) est entré en vigueur en 2023, exigeant des opérateurs qu'ils prouvent que leurs produits ne sont pas liés à la déforestation. Ce mémoire a développé une méthodologie open-source reproductible pour générer des preuves de conformité au niveau de la parcelle.</em></p>
+    </div>
+  </div>
+  <div class="thesis-wrap">
+    <div class="reveal">
+      <div class="s-label">Featured Work · Mémoire de Fin d'Études</div>
+      <h2>An <em>Integrated</em><br>Geospatial Approach</h2>
+      <p style="font-size:.95rem;color:var(--muted);max-width:55ch;margin-bottom:3rem;line-height:1.8">Certification and biodiversity impact assessment of Cameroon's cocoa supply chain, a fully open-source methodology combining QGIS, Google Earth Engine, and automated reporting for EUDR compliance.</p>
+    </div>
+    <div class="thesis-layout">
+      <div class="reveal reveal-delay-1">
+        <div class="thesis-tag">🎓 Final-Year Dissertation · University of Yaoundé I · 2024</div>
+        <h3 class="thesis-title">"An integrated geospatial approach to certification and biodiversity impact assessment: A case study of Cameroon's cocoa"</h3>
+        <p class="thesis-desc">
+          Developed and published an <strong>open-source geospatial methodology</strong> assessing 30 cocoa plots in Cameroon's Mbametkim area for EUDR compliance. The pipeline integrates four independent environmental analyses, each generating an automated "Sustainability Passport" via QGIS Atlas.
+          <br><span style="color:var(--eudr2);font-weight:500;display:inline-block;margin-top:.5rem">🏅 Awarded with Highest Honors.</span>
+        </p>
+        <!-- Results Grid -->
+        <div class="res-grid">
+          <div class="res-card"><div class="res-big" style="color:var(--leaf2)">30</div><div class="res-lbl">cocoa plots fully assessed</div></div>
+          <div class="res-card"><div class="res-big" style="color:var(--leaf2)">100%</div><div class="res-lbl">EUDR domain compliance (all outside permanent forest)</div></div>
+          <div class="res-card"><div class="res-big" style="color:var(--eudr2)">~90%</div><div class="res-lbl">plots with HEALTHY or MODERATE vegetation</div></div>
+          <div class="res-card"><div class="res-big" style="color:#c4b5fd">1</div><div class="res-lbl">LOW vegetation plot flagged for field verification</div></div>
+        </div>
+        <div class="cert-list">
+          <div class="cl-item">
+            <div class="cl-num c1">C1</div>
+            <div class="cl-content">
+              <div class="cl-title">Permanent Domain Compliance (EUDR)</div>
+              <div class="cl-desc">Vector intersection with permanent forest domain boundaries. Classification: COMPLIANT / NON-COMPLIANT per EU Regulation 2023/1115.</div>
+            </div>
+          </div>
+          <div class="cl-item">
+            <div class="cl-num c2">C2</div>
+            <div class="cl-content">
+              <div class="cl-title">Vegetation Analysis — NDVI / Sentinel-2</div>
+              <div class="cl-desc">NDVI computed from Sentinel-2 SR (2024). Classification: HEALTHY (&gt;0.6) · MODERATE (0.3–0.6) · LOW (&lt;0.3). Results: majority of plots HEALTHY or MODERATE.</div>
+            </div>
+          </div>
+          <div class="cl-item">
+            <div class="cl-num c3">C3</div>
+            <div class="cl-content">
+              <div class="cl-title">Biodiversity Impact — IUCN Threatened Mammals</div>
+              <div class="cl-desc">Spatial proximity analysis (5 km buffer) against IUCN threatened mammal species dataset for Cameroon. Risk classification: MEDIUM / LOW.</div>
+            </div>
+          </div>
+          <div class="cl-item">
+            <div class="cl-num c4">C4</div>
+            <div class="cl-content">
+              <div class="cl-title">Climate Vulnerability — ERA5 + CHIRPS</div>
+              <div class="cl-desc">Temperature change (ERA5 ECMWF) and precipitation anomaly (CHIRPS) compared between 2010–2019 baseline and 2022–2023. Risk: HIGH / MEDIUM / LOW.</div>
+            </div>
+          </div>
+        </div>
+        <div class="tech-row">
+          <span class="tech">QGIS Atlas</span><span class="tech">Google Earth Engine</span>
+          <span class="tech">Sentinel-2 SR</span><span class="tech">NDVI</span>
+          <span class="tech">IUCN Data</span><span class="tech">ERA5/ECMWF</span>
+          <span class="tech">CHIRPS</span><span class="tech">Python GEE API</span>
+          <span class="tech">PostGIS</span><span class="tech">Open Source</span>
+        </div>
+        <div style="margin-top:1.75rem;display:flex;gap:.85rem;flex-wrap:wrap">
+          <a href="https://github.com/Ndjeldan/cocoa-eudr-biodiversity-assessment" class="btn btn-p" target="_blank">View on GitHub ↗</a>
+          <a href="https://www.linkedin.com/posts/ndjel-dan-8682ba21a_determination-hardwork-faith-ugcPost-7383859463033626624-MRNV" class="btn btn-o" target="_blank">LinkedIn Post ↗</a>
+          <a href="projects/thesis-eudr-cocoa.html" class="btn btn-o">Full Project Page →</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="maps-panel">
+          <div class="maps-top">
+            <span class="maps-fn">Farm Parcels · Mbametkim, Cameroon</span>
+            <span class="maps-meta">Made by NDJEL DAN in QGIS</span>
+          </div>
+          <div class="maps-grid" id="maps-grid">
+            <div class="map-thumb"><div class="map-poly"><svg width="60" height="60" viewBox="0 0 60 60"><polygon points="30,12 42,24 38,42 22,42 18,24" fill="#4ade80" fill-opacity="0.75" stroke="#4ade80" stroke-width="1"/></svg></div><div class="map-overlay"><span>#1181</span></div></div>
+            <div class="map-thumb"><div class="map-poly"><svg width="60" height="60" viewBox="0 0 60 60"><polygon points="34,14 45,20 48,38 32,44 16,36 18,20" fill="#4ade80" fill-opacity="0.75" stroke="#4ade80" stroke-width="1"/></svg></div><div class="map-overlay"><span>#108</span></div></div>
+            <div class="map-thumb"><div class="map-poly"><svg width="60" height="60" viewBox="0 0 60 60"><polygon points="30,14 44,26 42,44 18,44 14,26" fill="#4ade80" fill-opacity="0.75" stroke="#4ade80" stroke-width="1"/></svg></div><div class="map-overlay"><span>#107</span></div></div>
+            <div class="map-thumb"><div class="map-poly"><svg width="60" height="60" viewBox="0 0 60 60"><polygon points="36,16 46,24 44,40 24,42 14,30 18,18" fill="#fcd34d" fill-opacity="0.75" stroke="#fcd34d" stroke-width="1"/></svg></div><div class="map-overlay"><span>#1061</span></div></div>
+            <div class="map-thumb"><div class="map-poly"><svg width="60" height="60" viewBox="0 0 60 60"><polygon points="30,10 44,20 44,40 24,46 12,34 14,18" fill="#4ade80" fill-opacity="0.75" stroke="#4ade80" stroke-width="1"/></svg></div><div class="map-overlay"><span>#779</span></div></div>
+            <div class="map-thumb"><div class="map-poly"><svg width="60" height="60" viewBox="0 0 60 60"><polygon points="26,16 40,14 46,30 38,44 18,42 14,28" fill="#fcd34d" fill-opacity="0.75" stroke="#fcd34d" stroke-width="1"/></svg></div><div class="map-overlay"><span>#2268</span></div></div>
+            <div class="map-thumb"><div class="map-poly"><svg width="60" height="60" viewBox="0 0 60 60"><polygon points="32,12 44,22 42,40 28,46 16,38 14,20" fill="#4ade80" fill-opacity="0.75" stroke="#4ade80" stroke-width="1"/></svg></div><div class="map-overlay"><span>#782</span></div></div>
+            <div class="map-thumb"><div class="map-poly"><svg width="60" height="60" viewBox="0 0 60 60"><polygon points="30,16 42,20 46,36 34,44 18,42 12,28 16,18" fill="#4ade80" fill-opacity="0.75" stroke="#4ade80" stroke-width="1"/></svg></div><div class="map-overlay"><span>#2025</span></div></div>
+            <div class="map-thumb"><div class="map-poly"><svg width="60" height="60" viewBox="0 0 60 60"><polygon points="28,12 40,22 36,44 16,40 14,24" fill="#f87171" fill-opacity="0.75" stroke="#f87171" stroke-width="1"/></svg></div><div class="map-overlay"><span>#3918</span></div></div>
+          </div>
+          <div class="legend-strip">
+            <div class="lg-item"><div class="lg-dot" style="background:#4ade80"></div>HEALTHY</div>
+            <div class="lg-item"><div class="lg-dot" style="background:#fcd34d"></div>MODERATE</div>
+            <div class="lg-item"><div class="lg-dot" style="background:#f87171"></div>LOW</div>
+            <div class="lg-item"><div class="lg-dot" style="background:#e5e7eb;opacity:.4"></div>COMPLIANT</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;background:rgba(22,163,74,.06);border:1px solid rgba(22,163,74,.18);border-radius:8px;padding:.85rem 1rem">
+          <div style="font-family:var(--mono);font-size:.65rem;color:var(--leaf);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.08em">Key Result</div>
+          <div style="font-size:.83rem;color:var(--ink2);line-height:1.6">
+            30 plots automatically assessed with 4-criteria "Sustainability Passport" reports, thematic maps and automated reports exportable per-plot via QGIS Atlas. <strong style="color:var(--leaf2)">Fully replicable open-source methodology.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OTHER PROJECTS (BILINGUAL) -->
+<div class="section" id="projects">
+  <div class="reveal">
+    <div class="s-label"><span class="lang-en">Portfolio</span><span class="lang-fr">Portfolio</span></div>
+    <h2><span class="lang-en">Other <em>Projects</em></span><span class="lang-fr">Autres <em>Projets</em></span></h2>
+    <p style="font-size:.9rem;color:var(--muted);max-width:50ch;margin-bottom:3rem;line-height:1.7"><span class="lang-en">Geospatial analyses, EUDR compliance tools and environmental monitoring, all built from real field data.</span><span class="lang-fr">Analyses géospatiales, outils de conformité EUDR et suivi environnemental, tous construits à partir de données terrain réelles.</span></p>
+  </div>
+  <div class="proj-grid">
+    <div class="proj-card reveal reveal-delay-1"><div class="proj-img"><div class="proj-img-lines"></div><span class="proj-emoji">🗺️</span></div><div class="proj-body"><div class="proj-type"><span class="lang-en">EUDR Compliance · Python</span><span class="lang-fr">Conformité EUDR · Python</span></div><div class="proj-title"><span class="lang-en">EUDR Polygon Validator</span><span class="lang-fr">Validateur de Polygones EUDR</span></div><div class="proj-desc"><span class="lang-en">Python pipeline validating plantation polygons for EU Deforestation Regulation. Built from MOI FOODS & DASI field data. Geometry, CRS, surface, overlap: 4 automated checks.</span><span class="lang-fr">Pipeline Python validant les polygones de plantations pour le Règlement UE sur la déforestation. Construit à partir des données terrain de MOI FOODS & DASI. Géométrie, SCR, surface, superposition : 4 contrôles automatisés.</span></div><div class="proj-tools"><span class="pt">Python</span><span class="pt">GeoPandas</span><span class="pt">Shapely</span><span class="pt">QGIS</span></div><div class="proj-links"><a href="projects/eudr-validator.html" class="pl"><span class="lang-en">View project →</span><span class="lang-fr">Voir le projet →</span></a><a href="https://github.com/Ndjeldan/eudr-polygon-validator" class="pl" target="_blank">GitHub ↗</a></div></div></div>
+    <div class="proj-card reveal reveal-delay-2"><div class="proj-img"><div class="proj-img-lines"></div><span class="proj-emoji">🌳</span></div><div class="proj-body"><div class="proj-type"><span class="lang-en">Remote Sensing · GEE</span><span class="lang-fr">Télédétection · GEE</span></div><div class="proj-title"><span class="lang-en">Forest Change Detector — Cameroon</span><span class="lang-fr">Détecteur de Changement Forestier — Cameroun</span></div><div class="proj-desc"><span class="lang-en">GEE + Python pipeline detecting 2018–2024 deforestation using Sentinel-2 NDVI time series. Forest loss quantified by commune. Outputs EUDR-ready CSV + GeoTIFF.</span><span class="lang-fr">Pipeline GEE + Python détectant la déforestation 2018–2024 à l'aide de séries temporelles NDVI Sentinel-2. Perte forestière quantifiée par commune. Produit des CSV + GeoTIFF prêts pour EUDR.</span></div><div class="proj-tools"><span class="pt">GEE</span><span class="pt">Sentinel-2</span><span class="pt">Rasterio</span><span class="pt">GeoPandas</span></div><div class="proj-links"><a href="projects/forest-change.html" class="pl"><span class="lang-en">View project →</span><span class="lang-fr">Voir le projet →</span></a><a href="https://github.com/Ndjeldan/forest-change-cameroon" class="pl" target="_blank">GitHub ↗</a></div></div></div>
+    <div class="proj-card reveal reveal-delay-3"><div class="proj-img"><div class="proj-img-lines"></div><span class="proj-emoji">🌍</span></div><div class="proj-body"><div class="proj-type"><span class="lang-en">Cartography · QGIS</span><span class="lang-fr">Cartographie · QGIS</span></div><div class="proj-title"><span class="lang-en">Population Density Map — Cameroon</span><span class="lang-fr">Carte de Densité de Population — Cameroun</span></div><div class="proj-desc"><span class="lang-en">Choropleth density map of all Cameroon regions. Published on LinkedIn, 70+ engagements. Made with QGIS and open demographic data.</span><span class="lang-fr">Carte choroplèthe de densité de toutes les régions du Cameroun. Publiée sur LinkedIn, 70+ interactions. Réalisée avec QGIS et données démographiques ouvertes.</span></div><div class="proj-tools"><span class="pt">QGIS</span><span class="pt">Choropleth</span><span class="pt">Open data</span></div><div class="proj-links"><a href="projects/density-map.html" class="pl"><span class="lang-en">View project →</span><span class="lang-fr">Voir le projet →</span></a><a href="https://www.linkedin.com/posts/ndjel-dan-8682ba21a_gis-qgis-remotesensing-share-7443175004265009152-NWqR" class="pl" target="_blank">LinkedIn ↗</a><a href="https://github.com/Ndjeldan/cameroon-density-map" class="pl" target="_blank">GitHub ↗</a></div></div></div>
+    <div class="proj-card reveal reveal-delay-4"><div class="proj-img"><div class="proj-img-lines"></div><span class="proj-emoji">⛰️</span></div><div class="proj-body"><div class="proj-type"><span class="lang-en">Cartography · QGIS</span><span class="lang-fr">Cartographie · QGIS</span></div><div class="proj-title"><span class="lang-en">Slope Map of Ndom, Cameroon</span><span class="lang-fr">Carte des Pentes de Ndom, Cameroun</span></div><div class="proj-desc"><span class="lang-en">Slope classification map of the Ndom area derived from DEM analysis. Published on LinkedIn. Demonstrates terrain analysis and cartographic design skills.</span><span class="lang-fr">Carte de classification des pentes de la zone de Ndom issue d'une analyse MNT. Publiée sur LinkedIn. Démontre des compétences en analyse de terrain et conception cartographique.</span></div><div class="proj-tools"><span class="pt">QGIS</span><span class="pt">DEM</span><span class="pt">Slope Analysis</span><span class="pt">Cartography</span></div><div class="proj-links"><a href="projects/slope-map-ndom.html" class="pl"><span class="lang-en">View project →</span><span class="lang-fr">Voir le projet →</span></a><a href="https://www.linkedin.com/posts/ndjel-dan-8682ba21a_gis-cop28-qgis-share-7305851312988930048-_Kso" class="pl" target="_blank">LinkedIn ↗</a></div></div></div>
+    <div class="proj-card reveal reveal-delay-5"><div class="proj-img"><div class="proj-img-lines"></div><span class="proj-emoji">📍</span></div><div class="proj-body"><div class="proj-type"><span class="lang-en">Cartography · QGIS</span><span class="lang-fr">Cartographie · QGIS</span></div><div class="proj-title"><span class="lang-en">Location Map of the Mfoundi</span><span class="lang-fr">Carte de Localisation du Mfoundi</span></div><div class="proj-desc"><span class="lang-en">Professional location map of the Mfoundi department, Cameroon. Administrative boundaries, roads, and key settlements. Published on LinkedIn.</span><span class="lang-fr">Carte de localisation professionnelle du département du Mfoundi, Cameroun. Limites administratives, routes et localités clés. Publiée sur LinkedIn.</span></div><div class="proj-tools"><span class="pt">QGIS</span><span class="pt">Cartography</span><span class="pt">Administrative Data</span></div><div class="proj-links"><a href="projects/location-map-mfoundi.html" class="pl"><span class="lang-en">View project →</span><span class="lang-fr">Voir le projet →</span></a><a href="https://www.linkedin.com/posts/ndjel-dan-8682ba21a_gis-sig-cop28-share-7315135605229719552-SCeF" class="pl" target="_blank">LinkedIn ↗</a></div></div></div>
+  </div>
+</div>
+
+<!-- SKILLS + CARTO PEERSPOT REVIEW -->
+<div style="background:rgba(6,26,13,.3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="section" style="padding-top:4rem;padding-bottom:4rem">
+    <div class="reveal"><div class="s-label"><span class="lang-en">Expertise</span><span class="lang-fr">Expertise</span></div><h2 style="margin-bottom:2rem"><span class="lang-en">Skills &amp; <em>Stack</em></span><span class="lang-fr">Compétences &amp; <em>Stack</em></span></h2></div>
+    <div class="skills-grid reveal">
+      <div class="skill-cat"><div class="skill-cat-title"><span class="lang-en">GIS & Cartography</span><span class="lang-fr">SIG & Cartographie</span></div><div class="skill-list"><div class="sk">QGIS (avancé)</div><div class="sk">ArcGIS Online</div><div class="sk">QGIS Atlas</div><div class="sk">PostGIS</div><div class="sk">CARTO Builder</div><div class="sk">QField / KoboCollect</div><div class="sk">GPS différentiel</div></div></div>
+      <div class="skill-cat"><div class="skill-cat-title"><span class="lang-en">Remote Sensing</span><span class="lang-fr">Télédétection</span></div><div class="skill-list"><div class="sk">Google Earth Engine</div><div class="sk">Sentinel-2 SR</div><div class="sk">Landsat</div><div class="sk">NDVI / EVI / SAVI</div><div class="sk">ERA5 / CHIRPS</div><div class="sk">Analyse occupation du sol</div><div class="sk">Détection de changements</div></div></div>
+      <div class="skill-cat"><div class="skill-cat-title">Python & GeoAI</div><div class="skill-list"><div class="sk">GeoPandas / Shapely</div><div class="sk">Rasterio / NumPy</div><div class="sk">GEE Python API</div><div class="sk">scikit-learn (ML)</div><div class="sk">Folium / Matplotlib</div><div class="sk">Random Forest</div><div class="sk">Pandas</div><div class="sk-note"><span class="lang-en">(actively building proficiency)</span><span class="lang-fr">(en cours de perfectionnement)</span></div></div></div>
+      <div class="skill-cat"><div class="skill-cat-title"><span class="lang-en">Compliance & PM</span><span class="lang-fr">Conformité & GP</span></div><div class="skill-list"><div class="sk">EUDR (UE 2023/1115)</div><div class="sk">Rainforest Alliance</div><div class="sk">Systèmes de traçabilité</div><div class="sk">Analyse données UICN</div><div class="sk">Renforcement des capacités</div><div class="sk">Gestion de projet</div><div class="sk">CAPM (en cours)</div></div></div>
+    </div>
+    <div style="margin-top:1.5rem;background:rgba(74,222,128,.05);border:1px solid var(--border);border-radius:8px;padding:.85rem 1.1rem;font-size:.85rem;color:var(--muted);line-height:1.7">
+      <span style="color:var(--leaf2);font-weight:500;font-family:var(--mono);"><span class="lang-en">Currently expanding into:</span><span class="lang-fr">En cours d'approfondissement :</span></span> <span class="lang-en">scikit-learn pipelines, Random Forest for land cover, and automating GEE analyses with Python.</span><span class="lang-fr">pipelines scikit-learn, Random Forest pour l'occupation du sol, et automatisation des analyses GEE avec Python.</span>
+    </div>
+
+    <!-- CARTO Peerspot Review Card -->
+    <div class="carto-review-card reveal">
+      <div class="carto-review-header">
+        <span class="carto-review-logo">Peerspot</span>
+        <span class="carto-review-rating">★★★★★</span>
+      </div>
+      <div class="carto-review-quote">
+        <span class="lang-en">"Geospatial workflows have become faster and collaboration improves plantation monitoring. I find CARTO useful for monitoring and compliance, appreciating its data handling and time-saving benefits…"</span>
+        <span class="lang-fr">« Les workflows géospatiaux sont devenus plus rapides et la collaboration améliore le suivi des plantations. Je trouve CARTO utile pour la surveillance et la conformité, appréciant sa gestion des données et ses gains de temps… »</span>
+      </div>
+      <div class="carto-review-author">
+        <span class="lang-en">— NDJEL DAN, verified review on Peerspot (May 2026)</span>
+        <span class="lang-fr">— NDJEL DAN, avis vérifié sur Peerspot (mai 2026)</span>
+      </div>
+      <a href="https://www.peerspot.com/products/carto-reviews?review_id=11613566" class="carto-review-link" target="_blank">↗ <span class="lang-en">View full review on Peerspot</span><span class="lang-fr">Voir l'avis complet sur Peerspot</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT (BILINGUAL) -->
+<div class="section" id="about">
+  <div class="s-label reveal"><span class="lang-en">About</span><span class="lang-fr">À propos</span></div>
+  <h2 class="reveal">NDJEL <em>DAN</em></h2>
+  <div class="about-grid">
+    <div class="reveal reveal-delay-1">
+      <div class="about-highlight">
+        <span class="lang-en">Bilingual (FR/EN) GIS specialist and researcher with 5 years of environmental and humanitarian experience, based in Yaoundé, Cameroon building geospatial solutions at the intersection of environmental compliance, remote sensing, and AI.</span>
+        <span class="lang-fr">Spécialiste SIG et chercheur bilingue (FR/EN) avec 5 ans d'expérience environnementale et humanitaire, basé à Yaoundé, Cameroun, développant des solutions géospatiales à l'intersection de la conformité environnementale, de la télédétection et de l'IA.</span>
+      </div>
+      <p><span class="lang-en">My academic work culminated in a <strong>final-year dissertation</strong> developing a fully open-source, automated GIS methodology for assessing cocoa plantation compliance with the EU Deforestation Regulation, integrating vegetation analysis, biodiversity risk, and climate vulnerability into per-plot "Sustainability Passports" generated automatically via QGIS Atlas and Google Earth Engine.</span><span class="lang-fr">Mon travail académique a abouti à un <strong>mémoire de fin d'études</strong> développant une méthodologie SIG entièrement open-source et automatisée pour évaluer la conformité des plantations de cacao au Règlement UE sur la déforestation, intégrant l'analyse de la végétation, le risque biodiversité et la vulnérabilité climatique dans des "Passeports Durabilité" générés automatiquement via QGIS Atlas et Google Earth Engine.</span></p>
+      <p><span class="lang-en">In practice, I apply these methods daily as <strong>Capacity-Building Officer at DASI</strong> (EUDR training), <strong>GIS Technician at CARTO-LAND</strong> (field data collection, PostGIS, spatial analysis), and <strong>Project Assistant & GIS Consultant at YED</strong> (environmental mapping). My background includes 5 years of environmental and humanitarian fieldwork with the Cameroon Red Cross, where I led youth programmes and served as Protection & Gender Focal Point, combining technical GIS skills with field-based project experience.</span><span class="lang-fr">Dans la pratique, j'applique ces méthodes quotidiennement en tant que <strong>Chargé de Renforcement des Capacités à DASI</strong> (formation EUDR), <strong>Technicien SIG à CARTO-LAND</strong> (collecte de données terrain, PostGIS, analyse spatiale) et <strong>Assistant Projet & Consultant SIG à YED</strong> (cartographie environnementale). Mon parcours inclut 5 ans de travail humanitaire et environnemental sur le terrain avec la Croix-Rouge Camerounaise, où j'ai dirigé des programmes jeunesse et servi de Point Focal Protection & Genre, alliant compétences techniques SIG et expérience de projet de terrain.</span></p>
+      <p><span class="lang-en">I hold a <strong>Bachelor's in Physical Geography</strong> from the University of Yaoundé I and a <strong>Diploma in Geomatics Applied to Monitoring Environmental Dynamics and Risks</strong> from the CAARD Bilingual Vocational Institute, a dual foundation that directly supports my specialisation in environmental monitoring and compliance. I am currently deepening my expertise in GeoAI and advanced Python workflows to strengthen my capacity for machine-learning-driven environmental monitoring.</span><span class="lang-fr">Je suis titulaire d'une <strong>Licence en Géographie Physique</strong> de l'Université de Yaoundé I et d'un <strong>Diplôme en Géomatique Appliquée au Suivi des Dynamiques et Risques Environnementaux</strong> de l'Institut Professionnel Bilingue CAARD, un double socle qui soutient directement ma spécialisation en suivi environnemental et conformité. J'approfondis actuellement mon expertise en GeoAI et les workflows Python avancés pour renforcer ma capacité en surveillance environnementale basée sur l'apprentissage automatique.</span></p>
+      <div class="contact-row">
+        <a href="mailto:davidndjel8@gmail.com" class="cl">✉ davidndjel8@gmail.com</a>
+        <a href="https://linkedin.com/in/ndjel-dan-8682ba21a" class="cl" target="_blank">in LinkedIn</a>
+        <a href="https://github.com/Ndjeldan" class="cl" target="_blank">⌥ Ndjeldan</a>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="exp-list">
+        <div class="exp"><div class="exp-role"><span class="lang-en">Capacity-Building Officer, EUDR Traceability</span><span class="lang-fr">Chargé de Renforcement des Capacités, Traçabilité EUDR</span></div><div class="exp-org">DASI</div><div class="exp-date"><span class="lang-en">Nov 2025 – present · Yaoundé</span><span class="lang-fr">Nov 2025 – présent · Yaoundé</span></div><div class="exp-links"><a href="https://www.linkedin.com/posts/ndjel-dan-8682ba21a_cacao-eudr-traaexabilitaez-activity-7442339028298948608-YJhj" class="exp-link" target="_blank">↗ <span class="lang-en">Field engagement post</span><span class="lang-fr">Publication terrain</span></a><a href="https://www.linkedin.com/posts/innocent-arnold-billong-ond-9405752b5_traaexabilitaez-cacaocertifiaez-cafaezcertifiaez-ugcPost-7424548647138258944-poWt" class="exp-link" target="_blank">↗ <span class="lang-en">Related</span><span class="lang-fr">Connexe</span></a></div></div>
+        <div class="exp"><div class="exp-role"><span class="lang-en">GIS Technician</span><span class="lang-fr">Technicien SIG</span></div><div class="exp-org">CARTO-LAND</div><div class="exp-date"><span class="lang-en">Feb 2025 – present · Yaoundé</span><span class="lang-fr">Fév 2025 – présent · Yaoundé</span></div></div>
+        <div class="exp"><div class="exp-role"><span class="lang-en">Project Assistant · GIS & Cartography Consultant</span><span class="lang-fr">Assistant Projet · Consultant SIG & Cartographie</span></div><div class="exp-org">YED — Youth Education and Development</div><div class="exp-date"><span class="lang-en">Dec 2025 – present · Remote</span><span class="lang-fr">Déc 2025 – présent · Distanciel</span></div><div class="exp-links"><a href="https://www.linkedin.com/posts/youth-for-education-development_%F0%9D%97%A8%F0%9D%97%BB%F0%9D%97%B2-%F0%9D%97%BB%F0%9D%97%BC%F0%9D%98%82%F0%9D%98%83%F0%9D%97%B2%F0%9D%97%B9%F0%9D%97%B9%F0%9D%97%B2-%F0%9D%97%B2%F0%9D%98%85%F0%9D%97%BD%F0%9D%97%B2%F0%9D%97%BF%F0%9D%98%81%F0%9D%97%B6-activity-7425119782133211136-b6JE" class="exp-link" target="_blank">↗ <span class="lang-en">YED post 1</span><span class="lang-fr">Publication YED 1</span></a><a href="https://www.linkedin.com/posts/youth-for-education-development_yedcameroun-aezducationenvironnementale-baeznaezvolat-activity-7446268351682711553-kbQn" class="exp-link" target="_blank">↗ <span class="lang-en">YED post 2</span><span class="lang-fr">Publication YED 2</span></a></div></div>
+        <div class="exp"><div class="exp-role"><span class="lang-en">Head of Youth Department</span><span class="lang-fr">Chef du Département Jeunesse</span></div><div class="exp-org"><span class="lang-en">Cameroon Red Cross · Yaoundé V</span><span class="lang-fr">Croix-Rouge Camerounaise · Yaoundé V</span></div><div class="exp-date"><span class="lang-en">Jan 2025 – present · 5 years total</span><span class="lang-fr">Jan 2025 – présent · 5 ans au total</span></div></div>
+        <div class="exp"><div class="exp-role"><span class="lang-en">Polygon Treatment Agent (EUDR)</span><span class="lang-fr">Agent de Traitement de Polygones (EUDR)</span></div><div class="exp-org">MOI FOODS Cameroon</div><div class="exp-date"><span class="lang-en">May – Nov 2025</span><span class="lang-fr">Mai – Nov 2025</span></div></div>
+        <div class="exp"><div class="exp-role"><span class="lang-en">Africa Resilience Cohort 2 Selectee</span><span class="lang-fr">Sélectionné Cohorte 2 Africa Resilience</span></div><div class="exp-org">Resilience Cohort Program</div><div class="exp-date">2025</div><div class="exp-links"><a href="https://www.linkedin.com/posts/ndjel-dan-8682ba21a_africaresilience-gis-sustainability-activity-7449489665751158784-tFN3" class="exp-link" target="_blank">↗ <span class="lang-en">Selection post</span><span class="lang-fr">Publication sélection</span></a><a href="https://www.linkedin.com/posts/ndjel-dan-8682ba21a_ara2026-activity-7458622602429927424-Ef86" class="exp-link" target="_blank">↗ <span class="lang-en">My contribution</span><span class="lang-fr">Ma contribution</span></a></div></div>
+        <div class="exp"><div class="exp-role"><span class="lang-en">Bachelor's in Physical Geography</span><span class="lang-fr">Licence en Géographie Physique</span></div><div class="exp-org">Université de Yaoundé I</div><div class="exp-date">2020 – 2023</div></div>
+        <div class="exp"><div class="exp-role"><span class="lang-en">Diploma in Geomatics (Environmental Monitoring)</span><span class="lang-fr">Diplôme en Géomatique (Suivi Environnemental)</span></div><div class="exp-org">CAARD Bilingual Vocational Institute</div><div class="exp-date">2025</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">NDJEL <span>DAN</span></div>
+    <div class="footer-copy" style="margin-top:.3rem"><span class="lang-en">GIS Specialist · EUDR · GeoAI · Yaoundé, Cameroon · Ndjeldan.github.io</span><span class="lang-fr">Spécialiste SIG · EUDR · GeoAI · Yaoundé, Cameroun · Ndjeldan.github.io</span></div>
+  </div>
+  <div class="footer-links">
+    <a href="https://github.com/Ndjeldan" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/ndjel-dan-8682ba21a" target="_blank">LinkedIn</a>
+    <a href="mailto:davidndjel8@gmail.com"><span class="lang-en">Email</span><span class="lang-fr">Courriel</span></a>
+  </div>
+</footer>
+
+<script>
+// Essential interactivity
+const glow=document.getElementById('glow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const pm=document.getElementById('plot-mini');
+const statuses=['h','h','h','h','h','h','h','h','h','h','h','h','h','h','h','h','h','h','m','m','m','m','m','m','m','m','m','l','l','l'];
+statuses.forEach((s,i)=>{const d=document.createElement('div');d.className=`pm ${s}`;d.style.animationDelay=(i*0.1)+'s';pm.appendChild(d)});
+
+// Language toggle
+const langToggle = document.getElementById('lang-toggle');
+const body = document.body;
+const pageTitle = document.getElementById('page-title');
+
+function setLanguage(lang) {
+  if (lang === 'fr') {
+    body.classList.add('lang-fr');
+    langToggle.textContent = 'EN';
+    pageTitle.textContent = 'NDJEL DAN — Spécialiste SIG | EUDR | GeoAI | Ndjeldan.github.io';
+  } else {
+    body.classList.remove('lang-fr');
+    langToggle.textContent = 'FR';
+    pageTitle.textContent = 'NDJEL DAN — GIS Specialist | EUDR | GeoAI | Ndjeldan.github.io';
+  }
+  localStorage.setItem('preferredLang', lang);
+}
+
+langToggle.addEventListener('click', () => {
+  if (body.classList.contains('lang-fr')) {
+    setLanguage('en');
+  } else {
+    setLanguage('fr');
+  }
+});
+
+// Load preferred language (default en)
+const savedLang = localStorage.getItem('preferredLang') || 'en';
+setLanguage(savedLang);
+</script>
+</body>
+</html>
