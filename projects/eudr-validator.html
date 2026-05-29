@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUDR Polygon Validator — NDJEL DAN | GIS Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;700&family=Syne+Mono&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#030d06;color:#f0fdf4;font-family:'Inter',sans-serif;line-height:1.7}
+  a{color:#4ade80;text-decoration:none}
+  .back{display:inline-block;margin:2rem 2.5rem;font-family:'Syne Mono',monospace;font-size:.8rem;color:#4ade80}
+  .container{max-width:800px;margin:0 auto;padding:3rem 2.5rem}
+  h1{font-family:'Clash Display',sans-serif;font-size:clamp(2rem,4vw,2.8rem);color:#fff;margin-bottom:.5rem;line-height:1.2}
+  h2{font-family:'Clash Display',sans-serif;font-size:1.3rem;color:#4ade80;margin-top:2rem;margin-bottom:.75rem;font-weight:500}
+  .tag{display:inline-block;background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);border-radius:999px;padding:.3rem 1rem;font-family:'Syne Mono',monospace;font-size:.7rem;color:#4ade80;margin-bottom:1.5rem}
+  p{color:rgba(240,253,244,.7);margin-bottom:1.2rem}
+  .tech{display:inline-block;font-family:'Syne Mono',monospace;font-size:.68rem;padding:3px 10px;border-radius:4px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.18);color:#bbf7d0;margin-right:.5rem;margin-bottom:.5rem}
+  .links{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;border-radius:6px;font-size:.85rem;font-weight:500;text-decoration:none;transition:.2s}
+  .btn-p{background:#16a34a;color:#030d06}.btn-p:hover{background:#4ade80}
+  .btn-o{border:1px solid rgba(74,222,128,.25);color:#4ade80}.btn-o:hover{background:rgba(74,222,128,.08)}
+  ul{color:rgba(240,253,244,.7);padding-left:1.5rem}
+  li{margin-bottom:.5rem}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back">← Back to portfolio</a>
+<div class="container">
+  <div class="tag">EUDR Compliance · Python</div>
+  <h1>EUDR Polygon Validator</h1>
+  <p>A <strong style="color:#dcfce7;">Python pipeline</strong> designed to validate plantation polygon datasets for compliance with the EU Deforestation Regulation (EUDR). Built from real field data collected by MOI FOODS and DASI.</p>
+  
+  <h2>What it checks</h2>
+  <ul>
+    <li><strong>Geometry validity</strong> – self‑intersections, duplicate vertices</li>
+    <li><strong>CRS consistency</strong> – ensures all polygons use WGS 84 / UTM</li>
+    <li><strong>Surface area</strong> – flags parcels below minimum threshold</li>
+    <li><strong>Overlap detection</strong> – identifies duplicate or overlapping claims</li>
+  </ul>
+  
+  <h2>Output</h2>
+  <p>Generates a clean, EUDR‑ready dataset with an automated validation report (CSV) highlighting problematic polygons for correction.</p>
+  
+  <h2>Built with</h2>
+  <div style="margin-bottom:1.5rem">
+    <span class="tech">Python</span><span class="tech">GeoPandas</span><span class="tech">Shapely</span><span class="tech">QGIS</span>
+  </div>
+  
+  <div class="links">
+    <a href="https://github.com/Ndjeldan/eudr-polygon-validator" class="btn btn-p" target="_blank">View on GitHub ↗</a>
+  </div>
+</div>
+</body>
+</html>
