@@ -153,7 +153,7 @@ h3.thesis-title{font-family:var(--head);font-size:clamp(1.3rem,2.5vw,1.9rem);fon
 /* PROJECTS GRID */
 .proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
 .proj-card{border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;background:rgba(6,26,13,.4);cursor:pointer;position:relative}
-.proj-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top,rgba(74,222,128,.05),transparent 60%);opacity:0;transition:opacity .3s}
+.proj-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top,rgba(74,222,128,.05),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
 .proj-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .proj-card:hover::before{opacity:1}
 .proj-img{height:120px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--g2)}
@@ -384,7 +384,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2.5rem;display:flex;jus
         <div style="margin-top:1.75rem;display:flex;gap:.85rem;flex-wrap:wrap">
           <a href="https://github.com/Ndjeldan/cocoa-eudr-biodiversity-assessment" class="btn btn-p" target="_blank">View on GitHub ↗</a>
           <a href="https://www.linkedin.com/posts/ndjel-dan-8682ba21a_determination-hardwork-faith-ugcPost-7383859463033626624-MRNV" class="btn btn-o" target="_blank">LinkedIn Post ↗</a>
-          <a href="projects/thesis-eudr-cocoa.html" class="btn btn-o">Full Project Page →</a>
+          <a href="https://ndjeldan.github.io/projects/thesis-eudr-cocoa.html" class="btn btn-o">Full Project Page →</a>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
