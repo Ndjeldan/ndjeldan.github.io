@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NdjelTrust — NDJEL DAN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F7F5F0; --bg-card: #FFFFFF; --text: #1A1A1A; --text-muted: #6E6C68;
+            --emerald: #1D9E75; --emerald-text: #0F7A5A; --border: #D8D5CF;
+            --ff-head: 'Sora', sans-serif; --ff-body: 'Source Serif 4', serif; --ff-mono: 'JetBrains Mono', monospace;
+        }
+        @media(prefers-color-scheme:dark) {
+            :root { --bg: #0A1410; --bg-card: #111E18; --text: #E8E5DF; --text-muted: #9A9690; --border: #26332C; --emerald-text: #2EC48D; }
+        }
+        body { font-family: var(--ff-body); background: var(--bg); color: var(--text); line-height: 1.7; margin: 0; padding: 0; }
+        
+        /* Barre de navigation */
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+        .nav-logo { font-family: var(--ff-head); font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; }
+        .nav-logo span { color: var(--emerald-text); }
+        
+        /* Gestion des langues */
+        .lang-toggle { font-family: var(--ff-mono); font-size: 0.75rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border); border-radius: 4px; color: var(--emerald-text); background: transparent; cursor: pointer; transition: all 0.3s; }
+        .lang-toggle:hover { background: rgba(29, 158, 117, 0.08); }
+        body.lang-fr .lang-en { display: none !important; }
+        body:not(.lang-fr) .lang-fr { display: none !important; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+        .back-link { font-family: var(--ff-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--emerald-text); text-decoration: none; display: inline-block; margin-bottom: 2rem; }
+        .back-link:hover { text-decoration: underline; }
+        h1 { font-family: var(--ff-head); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem; }
+        h1 span { color: var(--emerald-text); }
+        h2 { font-family: var(--ff-head); font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1rem; }
+        p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .tech-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+        .tech { font-family: var(--ff-mono); font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; background: rgba(29, 158, 117, 0.08); border: 1px solid rgba(29, 158, 117, 0.2); color: var(--emerald-text); }
+        .btn { display: inline-block; padding: 0.8rem 1.5rem; background: var(--emerald-text); color: white; text-decoration: none; border-radius: 4px; font-family: var(--ff-mono); font-size: 0.85rem; font-weight: 600; margin-top: 1rem; transition: background 0.3s; }
+        .btn:hover { background: var(--emerald); }
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; margin-top: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .stat { display: inline-block; margin-right: 3rem; margin-bottom: 1rem; }
+        .stat-num { font-family: var(--ff-head); font-size: 2rem; font-weight: 700; color: var(--emerald-text); display: block; line-height: 1; }
+        .stat-lbl { font-family: var(--ff-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+    </style>
+</head>
+<body class="lang-fr">
+    <div class="nav">
+        <a href="../index.html" class="nav-logo">NDJEL <span>DAN</span></a>
+        <button id="lang-toggle" class="lang-toggle">EN</button>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">
+            <span class="lang-fr">← Retour au Portfolio</span>
+            <span class="lang-en">← Back to Portfolio</span>
+        </a>
+        
+        <h1>NdjelTrust<br><span>AMS Automation</span></h1>
+        
+        <p style="font-size: 1.2rem; color: var(--text);">
+            <span class="lang-fr">Une plateforme géospatiale full-stack (Backend & Frontend) qui transforme des coordonnées GPS brutes en Attestations de Mesures de Superficie (AMS) certifiées, en 2 secondes.</span>
+            <span class="lang-en">A full-stack geospatial platform (Backend & Frontend) that transforms raw GPS coordinates into certified Surface Measurement Certificates (AMS) in 2 seconds.</span>
+        </p>
+        
+        <div class="card">
+            <div class="stat">
+                <span class="stat-num">2s</span>
+                <span class="stat-lbl lang-fr">Temps de génération</span>
+                <span class="stat-lbl lang-en">Generation time</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">176</span>
+                <span class="stat-lbl lang-fr">Rasters indexés</span>
+                <span class="stat-lbl lang-en">Indexed rasters</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">0</span>
+                <span class="stat-lbl lang-fr">FCFA de licences</span>
+                <span class="stat-lbl lang-en">Software license costs</span>
+            </div>
+        </div>
+
+        <h2 class="lang-fr">Le Constat</h2>
+        <h2 class="lang-en">The Challenge</h2>
+        <p class="lang-fr">Dans de nombreuses institutions de référence, la production de documents cartographiques officiels reste dépendante de logiciels propriétaires coûteux et de processus manuels. La génération d'un seul document peut prendre plusieurs heures, mobilisant des agents sur des tâches répétitives à faible valeur ajoutée.</p>
+        <p class="lang-en">In many reference institutions, the production of official cartographic documents remains dependent on expensive proprietary software and manual processes. Generating a single document can take several hours, tying up staff on repetitive, low-value tasks.</p>
+
+        <h2 class="lang-fr">L'Architecture</h2>
+        <h2 class="lang-en">The Architecture</h2>
+        <p class="lang-fr">J'ai conçu un prototype d'API REST sécurisée (FastAPI) couplé à un géoportail interactif (Leaflet). Le système lit automatiquement le raster approprié parmi un patrimoine de 176 fichiers, calcule les emprises géodésiques (UTM 32N/33N, Clarke 1880), et génère un PDF officiel avec description légale et QR code de vérification.</p>
+        <p class="lang-en">I designed a secure REST API prototype (FastAPI) coupled with an interactive geoportal (Leaflet). The system automatically reads the appropriate raster from a repository of 176 files, calculates geodesic extents (UTM 32N/33N, Clarke 1880), and generates an official PDF with legal description and verification QR code.</p>
+        
+        <div class="tech-grid">
+            <span class="tech">Python 3.14</span>
+            <span class="tech">FastAPI</span>
+            <span class="tech">Rasterio</span>
+            <span class="tech">PyProj</span>
+            <span class="tech">ReportLab</span>
+            <span class="tech">Leaflet</span>
+            <span class="tech">SHA-256</span>
+        </div>
+
+        <h2 class="lang-fr">Code Source</h2>
+        <h2 class="lang-en">Source Code</h2>
+        <p class="lang-fr">Le code backend complet est privé pour des raisons de sécurité institutionnelle. La vitrine technique est disponible sur GitHub.</p>
+        <p class="lang-en">The full backend code is private for institutional security reasons. The technical showcase is available on GitHub.</p>
+        
+        <a href="https://github.com/Ndjeldan/ndjeltrust" class="btn" target="_blank">
+            <span class="lang-fr">Voir la vitrine sur GitHub ↗</span>
+            <span class="lang-en">View showcase on GitHub ↗</span>
+        </a>
+    </div>
+
+    <script>
+        (function() {
+            const body = document.body;
+            const langToggle = document.getElementById('lang-toggle');
+            const LANG_KEY = 'preferredLang';
+
+            function setLanguage(lang) {
+                if (lang === 'fr') {
+                    body.classList.add('lang-fr');
+                    langToggle.textContent = 'EN';
+                    document.documentElement.lang = 'fr';
+                } else {
+                    body.classList.remove('lang-fr');
+                    langToggle.textContent = 'FR';
+                    document.documentElement.lang = 'en';
+                }
+                try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+            }
+
+            // Récupérer la langue depuis la page d'accueil
+            const savedLang = (function() { try { return localStorage.getItem(LANG_KEY); } catch (e) { return null; } })() || 'fr';
+            setLanguage(savedLang);
+
+            langToggle.addEventListener('click', function() {
+                setLanguage(body.classList.contains('lang-fr') ? 'en' : 'fr');
+            });
+        })();
+    </script>
+</body>
+</html>
