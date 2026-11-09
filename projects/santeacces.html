@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.remove('no-js');</script>
+    <title>SantéAccès Cameroun — NDJEL DAN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-dark: #0D3B2E; --emerald: #1D9E75; --emerald-text: #0F7A5A;
+            --bg: #F7F5F0; --bg-alt: #EFECE5; --bg-card: #FFFFFF; --text: #1A1A1A; --text-secondary: #4A4845;
+            --text-muted: #6E6C68; --border: #D8D5CF; --border-light: #E8E5DF;
+            --ff-head: 'Sora', sans-serif; --ff-body: 'Source Serif 4', serif; --ff-mono: 'JetBrains Mono', monospace;
+        }
+        @media(prefers-color-scheme:dark) {
+            :root { --bg: #0A1410; --bg-alt: #0E1C16; --bg-card: #111E18; --text: #E8E5DF; --text-secondary: #BFBBB2; --text-muted: #9A9690; --border: #26332C; --border-light: #1C2822; --emerald-text: #2EC48D; }
+        }
+        body { font-family: var(--ff-body); background: var(--bg); color: var(--text); line-height: 1.7; margin: 0; padding: 0; }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+        .nav-logo { font-family: var(--ff-head); font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; }
+        .nav-logo span { color: var(--emerald-text); }
+        .lang-toggle { font-family: var(--ff-mono); font-size: 0.75rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border); border-radius: 4px; color: var(--emerald-text); background: transparent; cursor: pointer; }
+        body.lang-fr .lang-en { display: none !important; }
+        body:not(.lang-fr) .lang-fr { display: none !important; }
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+        .back-link { font-family: var(--ff-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--emerald-text); text-decoration: none; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--ff-head); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem; }
+        h1 span { color: var(--emerald-text); }
+        h2 { font-family: var(--ff-head); font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1rem; }
+        p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .tech-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+        .tech { font-family: var(--ff-mono); font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; background: rgba(29, 158, 117, 0.08); border: 1px solid rgba(29, 158, 117, 0.2); color: var(--emerald-text); }
+        .btn { display: inline-block; padding: 0.8rem 1.5rem; background: var(--emerald-text); color: white; text-decoration: none; border-radius: 4px; font-family: var(--ff-mono); font-size: 0.85rem; font-weight: 600; margin-top: 1rem; margin-right: 1rem; }
+        .btn:hover { background: var(--emerald); }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
+        .btn-outline:hover { border-color: var(--emerald); color: var(--emerald-text); }
+        .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+        .img-grid img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+        .img-full { grid-column: span 2; }
+    </style>
+</head>
+<body class="lang-fr">
+    <div class="nav">
+        <a href="../index.html" class="nav-logo">NDJEL <span>DAN</span></a>
+        <button id="lang-toggle" class="lang-toggle">EN</button>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">
+            <span class="lang-fr">← Retour au Portfolio</span>
+            <span class="lang-en">← Back to Portfolio</span>
+        </a>
+        
+        <h1>SantéAccès Cameroun<br><span>Crisis Room Platform</span></h1>
+        
+        <p style="font-size: 1.2rem; color: var(--text);">
+            <span class="lang-fr">Une plateforme humanitaire Full-Stack conçue pour la préparation et le suivi des interventions sanitaires d'urgence (cas d'usage : réponse au choléra à Minawao).</span>
+            <span class="lang-en">A Full-Stack humanitarian platform designed for emergency health intervention planning and tracking (use case: cholera response in Minawao).</span>
+        </p>
+
+        <h2 class="lang-fr">Le Problème</h2>
+        <h2 class="lang-en">The Problem</h2>
+        <p class="lang-fr">Dans les zones isolées comme Minawao (Extrême-Nord, Cameroun), les équipes humanitaires font face à des données fragmentées : alertes sanitaires, points d'eau en panne, et routes inondées ne sont pas centralisés. Cela retarde la prise de décision et la coordination des secours.</p>
+        <p class="lang-en">In remote areas like Minawao (Far North, Cameroon), humanitarian teams face fragmented data: health alerts, broken water points, and flooded roads are not centralized. This delays decision-making and relief coordination.</p>
+
+        <h2 class="lang-fr">La Solution</h2>
+        <h2 class="lang-en">The Solution</h2>
+        <p class="lang-fr">J'ai développé une "Salle de crise" numérique. Elle permet aux coordinateurs d'importer des données CSV (nettoyage via Pandas), de visualiser sur une carte interactive les alertes et les obstacles, et de générer des plans de mission PDF en un clic.</p>
+        <p class="lang-en">I developed a digital "Crisis Room". It allows coordinators to import CSV data (cleaned via Pandas), visualize alerts and obstacles on an interactive map, and generate PDF mission plans in one click.</p>
+
+        <div class="tech-grid">
+            <span class="tech">Python</span>
+            <span class="tech">FastAPI</span>
+            <span class="tech">SQLite / SQLAlchemy</span>
+            <span class="tech">Pandas</span>
+            <span class="tech">Leaflet.js</span>
+            <span class="tech">JWT Auth</span>
+            <span class="tech">ReportLab</span>
+            <span class="tech">PWA (Offline)</span>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; flex-wrap: wrap;">
+            <!-- Remplace le lien ci-dessous par ton URL Netlify si tu l'as déployé -->
+            <a href="#" class="btn" target="_blank">
+                <span class="lang-fr">Voir l'app en ligne ↗</span>
+                <span class="lang-en">View live app ↗</span>
+            </a>
+            <a href="https://github.com/Ndjeldan/santeacces-showcase" class="btn btn-outline" target="_blank">
+                <span class="lang-fr">Vitrine GitHub ↗</span>
+                <span class="lang-en">GitHub Showcase ↗</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const body = document.body;
+            const langToggle = document.getElementById('lang-toggle');
+            const LANG_KEY = 'preferredLang';
+            function setLanguage(lang) {
+                if (lang === 'fr') { body.classList.add('lang-fr'); langToggle.textContent = 'EN'; }
+                else { body.classList.remove('lang-fr'); langToggle.textContent = 'FR'; }
+                try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+            }
+            const savedLang = (function() { try { return localStorage.getItem(LANG_KEY); } catch (e) { return null; } })() || 'fr';
+            setLanguage(savedLang);
+            langToggle.addEventListener('click', () => setLanguage(body.classList.contains('lang-fr') ? 'en' : 'fr'));
+        })();
+    </script>
+</body>
+</html>
